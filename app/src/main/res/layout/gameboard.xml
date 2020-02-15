@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#D8D5F3A4">
+
+        <TextView
+            android:id="@+id/TopTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wild Tic Tac Toe"
+            android:textSize="50sp"></TextView>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#D8D5F3A4">
+
+        <Button
+            android:id="@+id/button00"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp" />
+
+        <Button
+            android:id="@+id/button01"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+
+        <Button
+            android:id="@+id/button02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#D8D5F3A4">
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+
+        <Button
+            android:id="@+id/button12"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#D8D5F3A4">
+
+        <Button
+            android:id="@+id/button20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+
+        <Button
+            android:id="@+id/button21"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+
+        <Button
+            android:id="@+id/button22"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="36sp"/>
+    </LinearLayout>
+</LinearLayout>

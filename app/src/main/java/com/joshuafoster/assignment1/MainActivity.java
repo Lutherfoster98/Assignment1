@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button board[][] = new Button[3][3];
     Boolean playerTurn=true;
     String playerName;
+    int round=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +46,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (!((Button) v).getText().toString().equals("")) {
                 return;
             }
-            ((Button) v).setText("X");
+                ((Button) v).setText("X");
+                round++;
+
             if (winnerCheck()==true){
                 Toast.makeText(this,playerName+" wins!",Toast.LENGTH_LONG).show();
                 resetBoard();
+            }
+            else if (round==9){
+                resetBoard();
+                Toast.makeText(this,"Draw!",Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -57,16 +64,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(!((Button)v).getText().toString().equals("")){
             return true;
         }
-        ((Button)v).setText("O");
-        if (winnerCheck()==true){
+            ((Button)v).setText("O");
+            //round increment
+            round++;
+
+        if(winnerCheck()==true){
             Toast.makeText(this,playerName+" wins!",Toast.LENGTH_LONG).show();
             resetBoard();
+        }
+        else if (round==9){
+            resetBoard();
+            Toast.makeText(this,"Draw!",Toast.LENGTH_LONG).show();
         }
         return false;
     }
 
         //checks for a winner
         public boolean winnerCheck() {
+
             //change turn
             playerTurn = !playerTurn;
             if(playerTurn!=true){
@@ -113,6 +128,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void resetBoard(){
         //reset the playerTurn
         playerTurn=true;
+        //reset the round
+        round = 0;
         //reset the board to a blank state
         for(int i=0; i<3; i++){
             for(int x=0; x<3; x++){

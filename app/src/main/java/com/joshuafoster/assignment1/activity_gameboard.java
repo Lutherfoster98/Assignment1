@@ -1,16 +1,26 @@
 package com.joshuafoster.assignment1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 public class activity_gameboard extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
+    private static final String wildSave = "wild.txt";
     Button board[][] = new Button[3][3];
+    String[][] boardString = new String[3][3];
     Boolean playerTurn=true;
     String playerName;
     int round=0;
@@ -20,6 +30,7 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameboard);
+        readState();
     }
 
     @Override
@@ -46,14 +57,15 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         }
         ((Button) v).setText("X");
         round++;
-
+        //saveState();
         if (winnerCheck()==true){
+            resetBoard();
             Intent intent = new Intent(getApplicationContext(),
                     ExitActivity.class);
             intent.putExtra("winner",playerName);
             startActivity(intent);
 
-            resetBoard();
+
         }
         else if (round==9){ //draw
             resetBoard();
@@ -76,13 +88,14 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         //round increment
         round++;
 
-        if(winnerCheck()==true){
+        if(winnerCheck() ==true){
+            resetBoard();
             Intent intent = new Intent(getApplicationContext(),
                     ExitActivity.class);
             intent.putExtra("winner",playerName);
 
             startActivity(intent);
-            resetBoard();
+
         }
         else if (round==9){ //draw
             resetBoard();
@@ -103,11 +116,11 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         if(playerTurn!=true){
             playerName ="1";
         }else{
-            playerName ="1";
+            playerName ="2";
         }
 
         //assign board to a string 2d array
-        String[][] boardString = new String[3][3];
+
         for (int i = 0; i < 3; i++) {
             for (int x = 0; x < 3; x++) {
                 boardString[i][x] = board[i][x].getText().toString();
@@ -138,7 +151,30 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
                 return true;
             }
         }
+        saveState();
         return false;
+    }
+
+    public void saveState() {
+        FileOutputStream fos;
+        try {
+            fos = openFileOutput(wildSave, Context.MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+            PrintWriter pw = new PrintWriter(bw);
+            for (int i = 0; i < 3; i++) {
+                for (int x = 0; x < 3; x++) {
+                pw.println(boardString[i][x]);
+                    Log.i("Writing", "here in saveState");
+                }
+            }
+        pw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    public void readState(){
+
     }
 
     public void resetBoard(){
@@ -152,6 +188,21 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
                 board[i][x].setText("");
             }
         }
+        //************
+        //reset the wild.txt file
+       FileOutputStream fos;
+        try {
+            fos = openFileOutput(wildSave, Context.MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+            PrintWriter pw = new PrintWriter(bw);
+            pw.print("");
+            pw.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        //************
+
     }
 
 }

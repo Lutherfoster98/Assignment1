@@ -21,7 +21,7 @@ public class ExitActivity extends AppCompatActivity implements View.OnClickListe
             winner = extras.getString("winner");
         }
         String output = "Player ";
-        if ((winner == "1") || (winner == "2"))
+        if ((winner .equals( "1")) || (winner .equals( "2")))
             output += winner;
         output += " wins!";
 

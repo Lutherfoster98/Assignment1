@@ -141,15 +141,16 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
                     && !boardString[0][x].equals(""))) {
                 return true;
             }
-            //Diagonal checks
-            if (boardString[0][0].equals(boardString[1][1])
-                    && (boardString[0][0].equals(boardString[2][2]))
-                    || (boardString[2][0].equals(boardString[1][1]))
-                    && (boardString[2][0].equals(boardString[0][2]))
-                    && !boardString[0][0].equals("")
-                    && !boardString[2][0].equals("")){
-                return true;
-            }
+        }
+        //Diagonal checks
+        if         (boardString[0][0].equals(boardString[1][1])
+                && (boardString[0][0].equals(boardString[2][2]))
+                && !boardString[0][0].equals("")
+                ||
+                (boardString[2][0].equals(boardString[1][1]))
+                && (boardString[2][0].equals(boardString[0][2]))
+                && !boardString[2][0].equals("")){
+            return true;
         }
         saveState();
         return false;
@@ -186,6 +187,12 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         for(int i=0; i<3; i++){
             for(int x=0; x<3; x++){
                 board[i][x].setText("");
+            }
+        }
+        //reset the boardString to a blank state
+        for(int i=0; i<3; i++){
+            for(int x=0; x<3; x++){
+                boardString[i][x] ="";
             }
         }
         //************

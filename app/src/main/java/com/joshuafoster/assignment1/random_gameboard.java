@@ -16,11 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.Random;
+import java.util.Scanner;
 
 public class random_gameboard extends AppCompatActivity implements View.OnClickListener{
 
@@ -41,15 +43,10 @@ public class random_gameboard extends AppCompatActivity implements View.OnClickL
         createButtons(); //instantiates the buttons of the grid
         resetGame(); //resets buttons to no icon
         assignListener(); //assigns buttons to <this> listener
+        readSavedGame();
     }
 
 
-
-    @Override
-    protected void onStart(){
-        super.onStart();
-
-    }
 
     @Override
     protected void onStop() {
@@ -72,14 +69,11 @@ public class random_gameboard extends AppCompatActivity implements View.OnClickL
             BufferedWriter bw2 = new BufferedWriter(osw2);
             PrintWriter pw2 = new PrintWriter(bw2);
 
+            pw2.println("yes");
             for (int i = 0; i<3; i++)
                 for (int j=0; j<3; j++)
                     pw2.println(status[i][j]);
-
             pw2.close();
-
-
-            Toast.makeText(getApplicationContext(), "Game was saved", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             Log.e("FILE", "Cannot open file for writing");
         }
@@ -200,38 +194,69 @@ public class random_gameboard extends AppCompatActivity implements View.OnClickL
         }
         if ((status[0][0] == possibleWinner) && (status[1][1]== possibleWinner) && (status[2][2] == possibleWinner)) //checks diagonally
             return true;
-        if ((status[2][2] == possibleWinner) && (status[1][1]== possibleWinner) && (status[0][0] == possibleWinner)) //checks diagonally
+        if ((status[2][0] == possibleWinner) && (status[1][1]== possibleWinner) && (status[0][2] == possibleWinner)) //checks diagonally
             return true;
 
         return false; //no winner
     }
 
     private void endGame(int winner) {
-        String output = "";
-        if ((winner == 1) || (winner == 2))
-            output = "The winner is:\n\nPlayer " + winner;
-        else
-            output = "There was no winner this time";
-        setInstructions(output);
-        buttonNext.setText("Go back");
 
-        TextView myText = findViewById(R.id.game_instructions_text );
-        myText.setTextColor(Color.RED);
-        Animation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(500); //You can manage the blinking time with this parameter
-        anim.setStartOffset(20);
-        anim.setRepeatMode(Animation.REVERSE);
-        anim.setRepeatCount(5);
-        myText.startAnimation(anim);
+        if ((winner == 1) || (winner == 2)) {
+            Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
+            intent.putExtra("winner",Integer.toString(winner));
+            startActivity(intent);
 
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),
-                        MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        }
+        else {
+            Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
+            intent.putExtra("winner","draw");
+            startActivity(intent);
+
+        }
+    }
+
+    private void readSavedGame(){
+        try { //tries to open file with game saved
+            FileInputStream fis = openFileInput("random.txt");
+            Scanner scanner = new Scanner(fis);
+
+            String firstLine = scanner.next();
+            if (firstLine.equals("yes")) {
+                Log.d("Info", "Passed if");
+                for (int i = 0; i < 3; i++)
+                    for (int j = 0; j < 3; j++) {
+                        status[i][j] = scanner.nextInt();
+                        Log.d("Info", "Number found: " + status[i][j]);
+                        switch(status[i][j]){
+                            case 0:
+                                buttons[i][j].setImageResource(R.drawable.n);
+                                break;
+                            case 1:
+                                buttons[i][j].setImageResource(R.drawable.x);
+                                played++;
+                                break;
+                            case 2:
+                                buttons[i][j].setImageResource(R.drawable.o);
+                                played++;
+                                break;
+                        }
+                    }
+            } else
+                scanner.close();
+
+            //open file again to delete contents
+            FileOutputStream fos = openFileOutput("random.txt", Context.MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+            PrintWriter pw = new PrintWriter(bw);
+            pw.write("no");
+            pw.close();
+
+        } catch (FileNotFoundException e) {
+            // no file to read
+        }
+
     }
 
 

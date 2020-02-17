@@ -1,5 +1,6 @@
 package com.joshuafoster.assignment1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,12 +48,20 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         round++;
 
         if (winnerCheck()==true){
-            Toast.makeText(this,playerName+" wins!",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(),
+                    ExitActivity.class);
+            intent.putExtra("winner",playerName);
+            startActivity(intent);
+
             resetBoard();
         }
-        else if (round==9){
+        else if (round==9){ //draw
             resetBoard();
-            Toast.makeText(this,"Draw!",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(),
+                    ExitActivity.class);
+            intent.putExtra("winner","draw");
+
+            startActivity(intent);
         }
 
 
@@ -68,12 +77,20 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         round++;
 
         if(winnerCheck()==true){
-            Toast.makeText(this,playerName+" wins!",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(),
+                    ExitActivity.class);
+            intent.putExtra("winner",playerName);
+
+            startActivity(intent);
             resetBoard();
         }
-        else if (round==9){
+        else if (round==9){ //draw
             resetBoard();
-            Toast.makeText(this,"Draw!",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(),
+                    ExitActivity.class);
+            intent.putExtra("winner","draw");
+
+            startActivity(intent);
         }
         return false;
     }
@@ -84,9 +101,9 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         //change turn
         playerTurn = !playerTurn;
         if(playerTurn!=true){
-            playerName ="Player1";
+            playerName ="1";
         }else{
-            playerName ="Player2";
+            playerName ="1";
         }
 
         //assign board to a string 2d array

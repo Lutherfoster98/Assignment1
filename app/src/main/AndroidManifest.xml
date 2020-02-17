@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity_gameboard"></activity>
-        <activity android:name=".activity_wildttt"></activity>
+        <activity android:name=".ExitActivity"></activity>
+        <activity android:name=".ExitActivit" />
+        <activity android:name=".activity_gameboard" />
+        <activity android:name=".activity_wildttt" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

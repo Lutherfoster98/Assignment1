@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
-    android:background="#D8D5F3A4"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RandomInstructionsActivity">
 
     <TextView
         android:id="@+id/wildTTTWelcome"
@@ -13,11 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:fontFamily="sans-serif-condensed-light"
+        android:text="Random Tic Tac Toe"
         android:textAlignment="center"
         android:textColor="#CF4747"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:text="Wild Tic Tac Toe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="340dp"
-        android:text="Play Wild Tic Tac Toe"
+        android:text="Play Random Tic Tac Toe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

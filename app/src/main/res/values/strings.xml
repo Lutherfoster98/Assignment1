@@ -3,4 +3,22 @@
     <string name="info_text">Player 1 Wins!</string>
     <string name="exit_title_text">GAME OVER</string>
     <string name="return_button_text">RETURN TO MAIN SCREEN</string>
+    <string name="button_wild_text">Wild Tic Tac Toe</string>
+    <string name="button_random_text">Random Tic Tac Toe</string>
+    <string name="button_misere_text">Misere Tic Tac Toe</string>
+    <string name="Main_Title">Tic Tac Toe Showcase</string>
+    <string name="Main_Instructions">Select Which game you would like to play.</string>
+
+    <string name="random_title">Random Tic-Tac-Toe</string>
+    <string name="play_numerical_text">Numerical Tic-Tac-Toe</string>
+    <string name="play_random_text">Random Tic-Tac-Toe</string>
+    <string name="play_wild_text">Wild Tic-Tac-Toe</string>
+    <string name="exit_text">Exit Game</string>
+    <string name="main_image_description">Main image, hands showing pieces</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="next_player_text">Next Turn</string>
+    <string name="buttonO_description">O icon</string>
+    <string name="game_piece_description">Game Piece</string>
 </resources>

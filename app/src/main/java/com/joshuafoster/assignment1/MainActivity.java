@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -15,17 +14,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button wildButton = findViewById(R.id.button);
-        wildButton.setOnClickListener(this);
+        Button assignButton = findViewById(R.id.button_wild);
+        assignButton.setOnClickListener(this);
+
+        assignButton = findViewById(R.id.button_random);
+        assignButton.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.button){
+        if(v.getId() == R.id.button_wild){
             Intent intent = new Intent(getApplicationContext(),
                     activity_wildttt.class);
             startActivity(intent);
+        }
+
+        if (v.getId() == R.id.button_random){
+            Intent intent = new Intent(getApplicationContext(),
+                    RandomInstructionsActivity.class);
+            startActivity(intent);
+
         }
     }
 

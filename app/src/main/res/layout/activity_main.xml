@@ -11,7 +11,7 @@
         android:id="@+id/welcomeText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/Main_Title"
         android:textAlignment="center"
@@ -27,7 +27,7 @@
         android:id="@+id/beginningDirections"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/Main_Instructions"
         android:textSize="25sp"
@@ -40,34 +40,34 @@
         android:id="@+id/button_wild"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#FC5582A7"
         android:text="@string/button_wild_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_random"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/beginningDirections" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_random"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#FC5582A7"
         android:text="@string/button_random_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_misere"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_wild" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button_misere"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#FC5582A7"
         android:text="@string/button_misere_text"
         android:textColor="#FFFFFF"
@@ -75,7 +75,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_wild"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_random"
-        app:layout_constraintVertical_bias="0.008" />
+        app:srcCompat="@drawable/mainimage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

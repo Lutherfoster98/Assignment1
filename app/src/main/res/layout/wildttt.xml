@@ -27,35 +27,46 @@
         android:id="@+id/PlayButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="340dp"
+        android:layout_marginBottom="16dp"
         android:text="Play Wild Tic Tac Toe"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/back_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/aboutWildTTT"
+        android:id="@+id/instructionsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:paddingHorizontal="16dp"
         android:text="Wild Tic Tac Toe is played somewhat similarly to the original, 3 in a row wins. However, both players can place both X's  and O's. Just tap the box to place an X or press and hold to place an O. Have Fun!"
         android:textAllCaps="false"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/PlayButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wildTTTWelcome"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Back to Home Screen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/instructionsView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PlayButton"
-        app:layout_constraintVertical_bias="0.232" />
+        app:layout_constraintTop_toBottomOf="@+id/wildTTTWelcome"
+        app:srcCompat="@drawable/notebook" />
 </androidx.constraintlayout.widget.ConstraintLayout>

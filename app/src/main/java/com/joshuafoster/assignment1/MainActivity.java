@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void restoreWild(){
         Intent intent = new Intent(getApplicationContext(),
-                random_gameboard.class);
+                activity_gameboard.class);
         startActivity(intent);
 
     }
@@ -131,8 +131,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             PrintWriter pw = new PrintWriter(bw);
             pw.write("");
             pw.close();
+        } catch (FileNotFoundException e) {
+            Log.e("File", "Couldn't open a file.");
+        }
 
+        try {
             FileOutputStream fos2 = openFileOutput("random.txt", Context.MODE_PRIVATE);
+            OutputStreamWriter osw2 = new OutputStreamWriter(fos2);
+            BufferedWriter bw2 = new BufferedWriter(osw2);
+            PrintWriter pw2 = new PrintWriter(bw2);
+            pw2.write("no");
+            pw2.close();
+
+        } catch (FileNotFoundException e) {
+            Log.e("File", "Couldn't open a file.");
+        }
+
+        try {
+            FileOutputStream fos2 = openFileOutput("wild.txt", Context.MODE_PRIVATE);
+            OutputStreamWriter osw2 = new OutputStreamWriter(fos2);
+            BufferedWriter bw2 = new BufferedWriter(osw2);
+            PrintWriter pw2 = new PrintWriter(bw2);
+            pw2.write("no");
+            pw2.close();
+
+        } catch (FileNotFoundException e) {
+            Log.e("File", "Couldn't open a file.");
+        }
+
+        try {
+            FileOutputStream fos2 = openFileOutput("misere.txt", Context.MODE_PRIVATE);
             OutputStreamWriter osw2 = new OutputStreamWriter(fos2);
             BufferedWriter bw2 = new BufferedWriter(osw2);
             PrintWriter pw2 = new PrintWriter(bw2);

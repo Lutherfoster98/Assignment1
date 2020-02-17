@@ -104,9 +104,7 @@ public class random_gameboard extends AppCompatActivity implements View.OnClickL
         currentPlayer = -1;
         buttonNext.setVisibility(View.VISIBLE);
 
-        setInstructions("Welcome to Random Tic-Tac-Toe\n\nIn this game, a random player is chosen" +
-                " at the beginning of each turn.\nPlayer 1 is X, player 2 is O.\n\n" +
-                "Please tap \"Next Turn\" to begin.");
+        setInstructions("Tap \"Next Turn\" to continue.");
     }
 
     private void assignListener(){
@@ -120,7 +118,6 @@ public class random_gameboard extends AppCompatActivity implements View.OnClickL
     public void setInstructions(String text){
         TextView instructions = findViewById(R.id.game_instructions_text);
         instructions.setText(text);
-        instructions.setTextColor(getResources().getColor(R.color.text));
     }
 
     @Override
@@ -128,11 +125,11 @@ public class random_gameboard extends AppCompatActivity implements View.OnClickL
         if (view.getId() == buttonNext.getId()) {
             currentPlayer = new Random().nextInt(2) + 1;
             buttonNext.setVisibility(View.GONE);
-            String output = "Player " + currentPlayer + " select a square to place a ";
+            String output = "It's player " + currentPlayer + "'s turn. Select an empty square to place a ";
             if (currentPlayer == 1)
-                output += "X";
+                output += "X.";
             else
-                output += "O";
+                output += "O.";
             setInstructions(output);
         }
 
@@ -164,7 +161,7 @@ public class random_gameboard extends AppCompatActivity implements View.OnClickL
             played++; //increase turns played
             buttonNext.setVisibility(View.VISIBLE); //shows button to choose next player
 
-            setInstructions("Tap \"Next Turn\" to choose a random player.");
+            setInstructions("Tap \"Next Turn\" to continue.");
 
             if (played >= 3) //minimum movements needed to win
                 checkEndOfGame(player);

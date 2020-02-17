@@ -21,4 +21,5 @@
     <string name="next_player_text">Next Turn</string>
     <string name="buttonO_description">O icon</string>
     <string name="game_piece_description">Game Piece</string>
+    <string name="instructions_text">In this version of Tic Tac Toe, player 1 plays the \"X\" pieces and player 2 plays the \"O\" pieces. The twist in this game is that a random player is chosen randomly at the beginning of each turn.\\n\\nTo begin each turn and assign a random payer, tap the \"Next Turn\" button before selecting a square.</string>
 </resources>

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Tic Tac Toe  Showcase"
+        android:text="@string/Main_Title"
         android:textAlignment="center"
         android:textColor="#CF4747"
         android:textSize="40sp"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Select Which game you would like to play."
+        android:text="@string/Main_Instructions"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,12 +37,12 @@
         app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_wild"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:backgroundTint="#FC5582A7"
-        android:text="Button"
+        android:text="@string/button_wild_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,32 +50,32 @@
         app:layout_constraintTop_toBottomOf="@+id/beginningDirections" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_random"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:backgroundTint="#FC5582A7"
-        android:text="Button"
+        android:text="@string/button_random_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button_wild" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_misere"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:backgroundTint="#FC5582A7"
-        android:text="Button"
+        android:text="@string/button_misere_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/button_random"
         app:layout_constraintVertical_bias="0.008" />
 </androidx.constraintlayout.widget.ConstraintLayout>

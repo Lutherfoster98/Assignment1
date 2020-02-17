@@ -103,7 +103,7 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         if(playerTurn!=true){
             playerName ="1";
         }else{
-            playerName ="1";
+            playerName ="2";
         }
 
         //assign board to a string 2d array

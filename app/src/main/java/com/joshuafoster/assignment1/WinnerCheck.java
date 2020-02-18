@@ -2,12 +2,12 @@ package com.joshuafoster.assignment1;
 
 import android.widget.Button;
 
-public class winnerCheck {
+public class WinnerCheck {
 
     Boolean playerTurn=true;
     String playerName;
     //checks for a winner
-    public boolean winnerCheck(Button[][] board) {
+    public boolean WinnerCheck(Button[][] board) {
         //change turn
         playerTurn = !playerTurn;
         if(playerTurn!=true){

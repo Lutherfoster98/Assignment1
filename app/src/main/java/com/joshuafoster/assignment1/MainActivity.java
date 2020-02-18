@@ -2,6 +2,7 @@ package com.joshuafoster.assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,13 +12,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button board[][] = new Button[3][3];
     Boolean playerTurn=true;
     String playerName;
+    int numTurns=0;
+    int p1Points=0;
+    int p2Points=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Button wildButton = findViewById(R.id.button);
+        Button numericButton = findViewById(R.id.numericBtn);
         wildButton.setOnClickListener(this);
+        numericButton.setOnClickListener(this);
 
     }
 
@@ -28,6 +34,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Button play = findViewById(R.id.PlayButton);
             play.setOnClickListener(this);
         }
+
+        else if (v.getId() == R.id.numericBtn) {
+            Intent goToMisereGame = new Intent(this,MisereGame.class);
+            startActivity(goToMisereGame);
+        }
+
         else if (v.getId() == R.id.PlayButton){
             setContentView(R.layout.gameboard);
 

@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -44,20 +46,46 @@ public class ExitActivity extends AppCompatActivity implements View.OnClickListe
         winner = extraIntent.getStringExtra("winner");
 
         String output = "Player ";
-        if ((winner .equals( "1")) || (winner .equals( "2")))
+        if ((winner .equals( "1")) || (winner .equals( "2"))) {
             output += winner;
+            ImageView image = findViewById(R.id.imageView);
+            image.setImageResource(R.drawable.winner);
+        }
         output += " wins!";
 
-        if (winner == "draw")
+        if (winner.equals("draw")) {
             output = "There was no winner";
+            ImageView image = findViewById(R.id.imageView);
+            image.setImageResource(R.drawable.draw);
+        }
 
         TextView results = findViewById(R.id.info_textview);
         results.setText(output);
-
-
     }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Cannot go back", Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public void onClick(View view) {
+        delete_saved_game();
+
+        Intent intent = new Intent(getApplicationContext(),
+                MainActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        delete_saved_game();
+
+    }
+
+    public void delete_saved_game(){
         try {
             // Exiting from main screen, deleting saved game
             FileOutputStream fos = openFileOutput("savedGame.txt", Context.MODE_PRIVATE);
@@ -105,11 +133,6 @@ public class ExitActivity extends AppCompatActivity implements View.OnClickListe
         } catch (FileNotFoundException e) {
             Log.e("File", "Couldn't open a file.");
         }
-
-
-        Intent intent = new Intent(getApplicationContext(),
-                MainActivity.class);
-        startActivity(intent);
 
     }
 

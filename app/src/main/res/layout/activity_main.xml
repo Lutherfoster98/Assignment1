@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Tic Tac Toe Showcase"
+        android:text="@string/Main_Title"
         android:textAlignment="center"
         android:textColor="#CF4747"
         android:textSize="40sp"
@@ -27,78 +27,66 @@
         android:id="@+id/beginningDirections"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Select which game you would like to play"
-        android:textSize="23sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tttBoard" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:backgroundTint="#FC5582A7"
-        android:text="Button"
-        android:textColor="#FFFFFF"
+        android:text="@string/Main_Instructions"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/beginningDirections" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeText" />
 
     <Button
-        android:id="@+id/numericBtn"
+        android:id="@+id/button_wild"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#F00"
-        android:text="@string/misere"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FC5582A7"
+        android:text="@string/button_wild_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_random"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_random"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="#FC5582A7"
-        android:text="Button"
+        android:text="@string/button_random_text"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_misere"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_misere"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FC5582A7"
+        android:text="@string/button_misere_text"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numericBtn"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_wild"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:srcCompat="@drawable/misere" />
-
-     <ImageView
-        android:id="@+id/tttBoard"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
-        app:srcCompat="@drawable/tictactoe" />
+        app:srcCompat="@drawable/mainimage" />
 </androidx.constraintlayout.widget.ConstraintLayout>

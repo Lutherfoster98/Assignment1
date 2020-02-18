@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
-    android:background="#D8D5F3A4"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RandomInstructionsActivity">
 
     <TextView
         android:id="@+id/wildTTTWelcome"
@@ -13,11 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="68dp"
         android:fontFamily="sans-serif-condensed-light"
+        android:text="Random Tic Tac Toe"
         android:textAlignment="center"
         android:textColor="#CF4747"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:text="Wild Tic Tac Toe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +26,10 @@
         android:id="@+id/PlayButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Play Wild Tic Tac Toe"
+        android:text="Play Random Tic Tac Toe"
         app:layout_constraintBottom_toTopOf="@+id/back_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -40,9 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:paddingHorizontal="16dp"
-        android:text="Wild Tic Tac Toe is played somewhat similarly to the original, 3 in a row wins. However, both players can place both X's  and O's. Just tap the box to place an X or press and hold to place an O. Have Fun!"
-        android:textAllCaps="false"
-        android:textStyle="bold"
+        android:text="@string/instructions_text"
         app:layout_constraintBottom_toTopOf="@+id/PlayButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -51,7 +50,7 @@
         android:id="@+id/back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="24dp"
         android:text="Back to Home Screen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
@@ -68,5 +67,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wildTTTWelcome"
-        app:srcCompat="@drawable/notebook" />
+        app:srcCompat="@drawable/coin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

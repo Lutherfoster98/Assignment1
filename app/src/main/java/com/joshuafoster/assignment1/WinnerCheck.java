@@ -2,12 +2,12 @@ package com.joshuafoster.assignment1;
 
 import android.widget.Button;
 
-public class WinnerCheck {
-
+public class winnerCheck {
+    private static final String wildSave = "wild.txt";
     Boolean playerTurn=true;
     String playerName;
     //checks for a winner
-    public boolean WinnerCheck(Button[][] board) {
+    public boolean winnerCheck(Button[][] board) {
         //change turn
         playerTurn = !playerTurn;
         if(playerTurn!=true){
@@ -21,6 +21,7 @@ public class WinnerCheck {
         for (int i = 0; i < 3; i++) {
             for (int x = 0; x < 3; x++) {
                 boardString[i][x] = board[i][x].getText().toString();
+
             }
         }
         //checks for horizontal winner

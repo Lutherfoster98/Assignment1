@@ -8,14 +8,14 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MisereRules extends AppCompatActivity implements View.OnClickListener {
-    Button homeBtn, gameBtn;
+    Button back_button, gameBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.misererules);
 
-        homeBtn = findViewById(R.id.homeBtn);
-        homeBtn.setOnClickListener(this);
+        back_button = findViewById(R.id.back_button);
+        back_button.setOnClickListener(this);
 
         gameBtn = findViewById(R.id.gameBtn);
         gameBtn.setOnClickListener(this);
@@ -23,14 +23,14 @@ public class MisereRules extends AppCompatActivity implements View.OnClickListen
     }
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.homeBtn) {
+        if (v.getId() == R.id.back_button) {
             Intent goToHomeScreen = new Intent(this,MainActivity.class);
             startActivity(goToHomeScreen);
         }
 
         else if (v.getId() == R.id.gameBtn) {
-            Intent goBackToGame = new Intent(this, MisereGame.class);
-            startActivity(goBackToGame);
+            Intent playMisereGame = new Intent(this, MisereGame.class);
+            startActivity(playMisereGame);
         }
     }
 }

@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.button_misere) {
             delete_saved_game(); //start new game
             Intent intent = new Intent(getApplicationContext(),
-                    MisereGame.class);
+                    MisereRules.class);
             startActivity(intent);
         }
 

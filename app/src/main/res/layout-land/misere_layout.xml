@@ -18,6 +18,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
             android:contentDescription="@string/misere"
             app:srcCompat="@drawable/misere" />
 
@@ -25,7 +26,7 @@
             android:id="@+id/TopTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/misereImg"
+            android:layout_below="@id/misereImg"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="5dp"
             android:paddingTop="10dp"
@@ -35,38 +36,25 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/homeBtn"
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/TopTv"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:background="#574d70"
             android:text="@string/home"
             android:textColor="#fff"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/RulesBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/homeBtn"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:layout_centerHorizontal="true"
-            android:background="#574d70"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:text="@string/view_rules" />
-
-        <Button
             android:id="@+id/resetBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/RulesBtn"
+            android:layout_below="@id/back_button"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_centerHorizontal="true"
             android:background="#574d70"
             android:text="@string/reset"
@@ -78,20 +66,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/resetBtn"
-            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:text="@string/score"
             android:textColor="#000"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/player1TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/scoreTV"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:freezesText="true"
-            android:text="@string/player1Start"
+            android:text="@string/player1"
             android:textColor="#000"
             android:textSize="15sp"/>
 
@@ -100,9 +89,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/player1TV"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:freezesText="true"
-            android:text="@string/player2Start"
+            android:text="@string/player2"
             android:textColor="#000"
             android:textSize="15sp"/>
 
@@ -111,10 +100,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/player2TV"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:layout_marginBottom="15dp"
             android:freezesText="true"
-            android:text="@string/drawStart"
+            android:text="@string/draw"
             android:textColor="#000"
             android:textSize="15sp"/>
 
@@ -131,7 +120,7 @@
             android:id="@+id/button00"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
@@ -143,7 +132,7 @@
             android:id="@+id/button01"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="30dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="#9692b4"
@@ -155,7 +144,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginBottom="15dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="30dp"
             android:layout_weight="1"
             android:background="#9692b4"
             android:freezesText="true"
@@ -220,7 +209,7 @@
             android:id="@+id/button20"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-             android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
@@ -232,7 +221,7 @@
             android:id="@+id/button21"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:background="#9692b4"
@@ -243,7 +232,7 @@
             android:id="@+id/button22"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
             android:background="#9692b4"

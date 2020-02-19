@@ -24,6 +24,12 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
     String playerName;
     int round=0;
 
+    @Override
+    protected void onStop(){
+        super.onStop();
+        saveState();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

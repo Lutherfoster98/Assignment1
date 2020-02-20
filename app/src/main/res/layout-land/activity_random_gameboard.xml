@@ -11,7 +11,7 @@
         android:id="@+id/game_title_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="cursive"
         android:text="@string/random_title"
         android:textAlignment="center"
@@ -20,6 +20,7 @@
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,10 +29,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:stretchColumns="*"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/game_title_view">
 
@@ -43,7 +44,7 @@
             <ImageButton
                 android:id="@+id/button1_1"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="70dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="centerInside"
                 android:src="@drawable/x" />
@@ -51,7 +52,7 @@
             <ImageButton
                 android:id="@+id/button1_2"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="70dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="centerInside"
                 android:src="@drawable/x" />
@@ -59,7 +60,7 @@
             <ImageButton
                 android:id="@+id/button1_3"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="70dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="centerInside"
                 android:src="@drawable/x" />
@@ -73,7 +74,7 @@
             <ImageButton
                 android:id="@+id/button2_1"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="70dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/o" />
@@ -81,7 +82,7 @@
             <ImageButton
                 android:id="@+id/button2_2"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="70dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/o" />
@@ -89,7 +90,7 @@
             <ImageButton
                 android:id="@+id/button2_3"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="70dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/o" />
@@ -103,7 +104,7 @@
             <ImageButton
                 android:id="@+id/button3_1"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="60dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="fitCenter"
                 android:src="@drawable/x" />
@@ -111,7 +112,7 @@
             <ImageButton
                 android:id="@+id/button3_2"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="60dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="fitCenter"
                 android:src="@drawable/x" />
@@ -119,7 +120,7 @@
             <ImageButton
                 android:id="@+id/button3_3"
                 android:layout_width="0dp"
-                android:layout_height="120dp"
+                android:layout_height="60dp"
                 android:contentDescription="@string/game_piece_description"
                 android:scaleType="fitCenter"
                 android:src="@drawable/x" />
@@ -129,27 +130,28 @@
 
     <TextView
         android:id="@+id/game_instructions_text"
-        android:layout_width="match_parent"
+        android:layout_width="450dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="28dp"
         android:text="@string/instructions_go_here"
         android:textColor="@color/text"
-        android:textSize="36sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
     <Button
         android:id="@+id/next_player_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
         android:text="@string/next_player_text"
-        app:layout_constraintBottom_toTopOf="@+id/game_instructions_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.joshuafoster.assignment1;
 
+// Team Members: Joshua Foster, Lionel Sosa Estrada, and Stephanie Escue
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;

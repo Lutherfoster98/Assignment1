@@ -2,33 +2,33 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
-    android:background="#D8D5F3A4"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RandomInstructionsActivity">
 
     <TextView
         android:id="@+id/wildTTTWelcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
         android:fontFamily="sans-serif-condensed-light"
+        android:text="@string/random_title"
         android:textAlignment="center"
         android:textColor="#CF4747"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:text="@string/button_wild_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <Button
         android:id="@+id/PlayButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/play_wild"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/play_random_tic_tac_toe"
         app:layout_constraintBottom_toTopOf="@+id/back_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -40,9 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:paddingHorizontal="16dp"
-        android:text="@string/wild_rules"
-        android:textAllCaps="false"
-        android:textStyle="bold"
+        android:text="@string/instructions_text"
         app:layout_constraintBottom_toTopOf="@+id/PlayButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -51,7 +49,7 @@
         android:id="@+id/back_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/return_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,15 +57,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_width="219dp"
+        android:layout_height="132dp"
+        android:layout_marginBottom="72dp"
         android:adjustViewBounds="true"
         android:paddingHorizontal="16dp"
-        android:contentDescription="@string/img_wildttt_desc"
+        android:contentDescription="@string/game_piece_description"
         app:layout_constraintBottom_toTopOf="@+id/instructionsView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wildTTTWelcome"
-        app:srcCompat="@drawable/notebook" />
+        app:srcCompat="@drawable/coin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

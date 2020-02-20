@@ -2,7 +2,7 @@ package com.joshuafoster.assignment1;
 
 import android.widget.Button;
 
-public class winnerCheck {
+public class WinnerCheck {
     private static final String wildSave = "wild.txt";
     Boolean playerTurn=true;
     String playerName;

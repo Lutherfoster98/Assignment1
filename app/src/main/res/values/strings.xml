@@ -3,26 +3,25 @@
     <string name="misere"> Misère Tic Tac Toe </string>
     <string name="view_rules">View Rules</string>
     <string name="reset">Reset</string>
-    <string name="player1Start">Player 1(X\'s): 0</string>
-    <string name="player2Start">Player 2(0\'s): 0</string>
+    <string name="player1">Player 1(X\'s):\u0020\u0020 </string>
+    <string name="player2">Player 2(0\'s):\u0020\u0020 </string>
     <string name="zero"> 0 </string>
     <string name="score">Score</string>
-    <string name="home">Home</string>
     <string name="misereRules"> The goal of the game is <strong>NOT</strong> to get a tic tac toe. If you get a tic tac toe,
         you lose and your opponent wins! </string>
-    <string name="return_to_game">Return to Game</string>
-    <string name="drawStart"> Draw: 0 </string>
+    <string name="play_misere"> Play Misere Tic Tac Toe </string>
+    <string name="home"> Home </string>
+    <string name="draw"> Draw:\u0020\u0020  </string>
     <string name="info_text">Player 1 Wins!</string>
     <string name="exit_title_text">GAME OVER</string>
-    <string name="return_button_text">RETURN TO MAIN SCREEN</string>
+    <string name="return_button_text"> Back to Home Screen </string>
     <string name="button_wild_text">Wild Tic Tac Toe</string>
     <string name="button_random_text">Random Tic Tac Toe</string>
     <string name="button_misere_text">Misere Tic Tac Toe</string>
     <string name="Main_Title">Tic Tac Toe Showcase</string>
-    <string name="Main_Instructions">Select Which game you would like to play.</string>
+    <string name="Main_Instructions">Select the game you would like to play</string>
 
     <string name="random_title">Random Tic-Tac-Toe</string>
-    <string name="play_numerical_text">Numerical Tic-Tac-Toe</string>
     <string name="play_random_text">Random Tic-Tac-Toe</string>
     <string name="play_wild_text">Wild Tic-Tac-Toe</string>
     <string name="exit_text">Exit Game</string>

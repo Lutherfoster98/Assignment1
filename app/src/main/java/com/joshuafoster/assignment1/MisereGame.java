@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MisereGame extends AppCompatActivity implements View.OnClickListener {
-    Button resetBtn, numRulesBtn, homeBtn;
+    Button resetBtn, back_button;
     Button board[][] = new Button[3][3];
     Boolean player1Turn=true;
     int numTurns=0, p1Score=0, p2Score=0, numDraws=0;
@@ -36,16 +36,17 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
 
         // Getting resources
         resetBtn = findViewById(R.id.resetBtn);
-        numRulesBtn = findViewById(R.id.RulesBtn);
-        homeBtn = findViewById(R.id.homeBtn);
+        back_button = findViewById(R.id.back_button);
         p1ScoreTV = findViewById(R.id.player1TV);
         p2ScoreTV = findViewById(R.id.player2TV);
         drawScoreTV = findViewById(R.id.drawScoreTV);
 
+        // Set starting game score
+        showScore();
+
         // Setting listeners for top row of action buttons
         resetBtn.setOnClickListener(this);
-        numRulesBtn.setOnClickListener(this);
-        homeBtn.setOnClickListener(this);
+        back_button.setOnClickListener(this);
 
         // Getting ids for game board and setting listeners
         for (int i = 0; i < 3; i++) {
@@ -62,18 +63,13 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
 
         if(v.getId() == R.id.resetBtn){
-            resetBoard();
+            resetGame();
         } // End Reset If
 
-        else if (v.getId() == R.id.homeBtn) {
+        else if (v.getId() == R.id.back_button) {
             Intent goToHomeScreen = new Intent(this,MainActivity.class);
             startActivity(goToHomeScreen);
         } // End Home If
-
-        else if (v.getId() == R.id.RulesBtn) {
-            Intent goToNumericRules = new Intent(this, MisereRules.class);
-            startActivity(goToNumericRules);
-        } // End Rules If
 
         if (!((Button) v).getText().toString().equals("")) {
             return;
@@ -100,6 +96,23 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
         }
     } // End onClick
 
+    private void resetGame() {
+        //reset the playerTurn
+        player1Turn = true;
+        numTurns=0;
+        p1Score=0;
+        p2Score=0;
+        numDraws=0;
+
+        //reset the board to a blank state
+        for (int i = 0; i < 3; i++) {
+            for (int x = 0; x < 3; x++) {
+                board[i][x].setText("");
+            } // End x loop
+        } // End i loop
+        showScore();
+     } // End resetGame
+
     private void resetBoard() {
         //reset the playerTurn
         player1Turn = true;
@@ -111,7 +124,7 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
                 board[i][x].setText("");
             } // End x loop
         } // End i loop
-    } // End resetBoard
+    } // End resetGame
 
     //checks for a winner
     public boolean winnerCheck() {
@@ -160,28 +173,28 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
     private void player1Wins() {
         p1Score++;
         Toast.makeText(this, "Great job Player 1! You win!", Toast.LENGTH_SHORT).show();
-        incrementPoints();
+        showScore();
         resetBoard();
     }
 
     private void player2Wins() {
         p2Score++;
         Toast.makeText(this, "Great job Player 2! You win!", Toast.LENGTH_SHORT).show();
-        incrementPoints();
+        showScore();
         resetBoard();
     }
 
     private void draw() {
         numDraws++;
         Toast.makeText(this, "It's a draw! No winner.", Toast.LENGTH_SHORT).show();
-        incrementPoints();
+        showScore();
         resetBoard();
     }
 
-    private void incrementPoints() {
-        p1ScoreTV.setText("Player 1(X\'s): " + p1Score);
-        p2ScoreTV.setText("Player 2:(O\'s) " + p2Score);
-        drawScoreTV.setText("Draw: " + numDraws);
+    private void showScore() {
+        p1ScoreTV.setText(getResources().getString(R.string.player1) + p1Score);
+        p2ScoreTV.setText(getResources().getString(R.string.player2)+ p2Score);
+        drawScoreTV.setText(getResources().getString(R.string.draw)  + numDraws);
     }
 
     @Override

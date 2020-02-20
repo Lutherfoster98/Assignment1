@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignButton = findViewById(R.id.button_random);
         assignButton.setOnClickListener(this);
 
+        assignButton = findViewById(R.id.button_misere);
+        assignButton.setOnClickListener(this);
+
         try { //tries to open file with game saved
             FileInputStream fis = openFileInput("savedGame.txt");
             Scanner scanner = new Scanner(fis);
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.button_misere) {
             delete_saved_game(); //start new game
             Intent intent = new Intent(getApplicationContext(),
-                    RandomInstructionsActivity.class);
+                    MisereRules.class);
             startActivity(intent);
         }
 

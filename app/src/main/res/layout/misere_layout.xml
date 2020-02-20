@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="#e6f8fb">
 
-        <!-- Game Name -->
+        <!-- Game Name and Logo -->
         <TextView
             android:id="@+id/TopTv"
             android:layout_width="match_parent"
@@ -32,43 +32,29 @@
             android:contentDescription="@string/misere"
             app:srcCompat="@drawable/misere" />
 
-        <Button
-            android:id="@+id/RulesBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/numbersImg"
-            android:layout_marginTop="0dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginBottom="10dp"
-            android:background="#574d70"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:text="@string/view_rules" />
-
         <!-- Score Area -->
 
         <Button
             android:id="@+id/resetBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/numbersImg"
-            android:layout_marginStart="46dp"
-            android:layout_marginTop="0dp"
-            android:layout_toEndOf="@id/RulesBtn"
+            android:layout_below="@id/misereImg"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/back_button"
             android:background="#574d70"
             android:text="@string/reset"
             android:textColor="#fff"
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/homeBtn"
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/misereImg"
-            android:layout_marginStart="59dp"
-            android:layout_marginTop="-1dp"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="25dp"
-            android:layout_toEndOf="@id/resetBtn"
             android:background="#574d70"
             android:textColor="#fff"
             android:textStyle="bold"
@@ -78,9 +64,10 @@
             android:id="@+id/scoreTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="@string/score"
             android:textColor="#000"
-            android:layout_below="@id/RulesBtn"
+            android:layout_below="@id/back_button"
             android:layout_marginStart="25dp"
             android:textSize="30sp"/>
 
@@ -90,7 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/scoreTV"
             android:layout_marginStart="25dp"
-            android:text="@string/player1Start"
+            android:text="@string/player1"
             android:textColor="#000"
             android:freezesText="true"
             android:textSize="20sp"/>
@@ -102,7 +89,7 @@
             android:layout_below="@id/player1TV"
             android:layout_marginStart="25dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/player2Start"
+            android:text="@string/player2"
             android:textColor="#000"
             android:freezesText="true"
             android:textSize="20sp"/>
@@ -114,7 +101,7 @@
             android:layout_toEndOf="@id/player1TV"
             android:layout_below="@id/scoreTV"
             android:layout_marginStart="45dp"
-            android:text="@string/drawStart"
+            android:text="@string/draw"
             android:textColor="#000"
             android:freezesText="true"
             android:textSize="20sp"/>

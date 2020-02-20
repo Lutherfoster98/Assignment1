@@ -45,9 +45,10 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:paddingHorizontal="16dp"
+        android:contentDescription="Tic Tac Toe"
         app:layout_constraintBottom_toTopOf="@+id/return_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info_textview"
-        app:srcCompat="@drawable/winner" />
+        app:srcCompat="@drawable/tictactoe" />
 </androidx.constraintlayout.widget.ConstraintLayout>

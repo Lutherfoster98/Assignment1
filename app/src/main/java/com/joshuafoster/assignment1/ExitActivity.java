@@ -48,7 +48,7 @@ public class ExitActivity extends AppCompatActivity implements View.OnClickListe
         winner = extraIntent.getStringExtra("winner");
 
         String output = "Player ";
-        if ((winner .equals( "1")) || (winner .equals( "2"))) {
+        if ((winner.equals( "1")) || (winner.equals( "2"))) {
             output += winner;
             ImageView image = findViewById(R.id.imageView);
             image.setImageResource(R.drawable.winner);

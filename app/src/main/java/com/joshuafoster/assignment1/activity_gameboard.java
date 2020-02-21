@@ -65,24 +65,23 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         ((Button) v).setText("X");
         round++;
         //saveState();
-        if (winnerCheck()==true){
+        if(winnerCheck() ==true){
+            String winnerIntent;
+            if (playerTurn)
+                winnerIntent = "1";
+            else
+                winnerIntent = "2";
             resetBoard();
-            Intent intent = new Intent(getApplicationContext(),
-                    ExitActivity.class);
-            intent.putExtra("winner",playerName);
+            Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
+            intent.putExtra("winner", winnerIntent);
             startActivity(intent);
-
-
         }
         else if (round==9){ //draw
             resetBoard();
-            Intent intent = new Intent(getApplicationContext(),
-                    ExitActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
             intent.putExtra("winner","draw");
-
             startActivity(intent);
         }
-
 
     }
 
@@ -96,20 +95,20 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
         round++;
 
         if(winnerCheck() ==true){
+            String winnerIntent;
+            if (playerTurn)
+                winnerIntent = "1";
+            else
+                winnerIntent = "2";
             resetBoard();
-            Intent intent = new Intent(getApplicationContext(),
-                    ExitActivity.class);
-            intent.putExtra("winner",playerName);
-
+            Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
+            intent.putExtra("winner", winnerIntent);
             startActivity(intent);
-
         }
         else if (round==9){ //draw
             resetBoard();
-            Intent intent = new Intent(getApplicationContext(),
-                    ExitActivity.class);
+            Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
             intent.putExtra("winner","draw");
-
             startActivity(intent);
         }
         return false;
@@ -120,11 +119,11 @@ public class activity_gameboard extends AppCompatActivity implements View.OnClic
 
         //change turn
         playerTurn = !playerTurn;
-        if(playerTurn!=true){
-            playerName ="1";
-        }else{
+        /*if(playerTurn){
             playerName ="2";
-        }
+        }else{
+            playerName ="1";
+        }*/
 
         //assign board to a string 2d array
 

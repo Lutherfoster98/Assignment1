@@ -216,7 +216,7 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
         showScore();
         resetBoard();
         Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
-        intent.putExtra("winner","0");
+        intent.putExtra("winner","draw");
         startActivity(intent);
 
     }

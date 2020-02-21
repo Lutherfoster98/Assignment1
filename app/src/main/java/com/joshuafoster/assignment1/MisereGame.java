@@ -2,14 +2,24 @@ package com.joshuafoster.assignment1;
 
 // Team Members: Joshua Foster, Lionel Sosa Estrada, and Stephanie Escue
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class MisereGame extends AppCompatActivity implements View.OnClickListener {
     Button resetBtn, back_button;
@@ -59,7 +69,15 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
                 board[i][x].setOnClickListener(this);
              }
         }
+        readState();
     } // End onCreate
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        saveState();
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -174,23 +192,33 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
 
     private void player1Wins() {
         p1Score++;
-        Toast.makeText(this, "Great job Player 1! You win!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Great job Player 1! You win!", Toast.LENGTH_SHORT).show();
         showScore();
         resetBoard();
+        Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
+        intent.putExtra("winner","1");
+        startActivity(intent);
     }
 
     private void player2Wins() {
         p2Score++;
-        Toast.makeText(this, "Great job Player 2! You win!", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Great job Player 2! You win!", Toast.LENGTH_SHORT).show();
         showScore();
         resetBoard();
+        Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
+        intent.putExtra("winner","2");
+        startActivity(intent);
     }
 
     private void draw() {
         numDraws++;
-        Toast.makeText(this, "It's a draw! No winner.", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "It's a draw! No winner.", Toast.LENGTH_SHORT).show();
         showScore();
         resetBoard();
+        Intent intent = new Intent(getApplicationContext(), ExitActivity.class);
+        intent.putExtra("winner","0");
+        startActivity(intent);
+
     }
 
     private void showScore() {
@@ -219,6 +247,77 @@ public class MisereGame extends AppCompatActivity implements View.OnClickListene
         p2Score = savedInstanceState.getInt("p2score");
         numDraws = savedInstanceState.getInt("numDraws");
         player1Turn = savedInstanceState.getBoolean("player1Turn");
+    }
+
+    public void saveState() {
+        FileOutputStream fos;
+        try {
+            fos = openFileOutput("misere.txt", Context.MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+            PrintWriter pw = new PrintWriter(bw);
+            pw.println("yes");
+            for (int i = 0; i < 3; i++) {
+                for (int x = 0; x < 3; x++) {
+                    //this was needed to restore the game
+                    if (board[i][x].getText().equals("X") || board[i][x].getText().equals("O"))
+                        pw.println(board[i][x].getText());
+                    else
+                        pw.println("-");
+                }
+            }
+            pw.close();
+
+            //save file with game type
+            FileOutputStream fos2 = openFileOutput("savedGame.txt", Context.MODE_PRIVATE);
+            OutputStreamWriter osw2 = new OutputStreamWriter(fos2);
+            BufferedWriter bw2 = new BufferedWriter(osw2);
+            PrintWriter pw2 = new PrintWriter(bw2);
+            pw2.println("misere");
+            pw2.close();
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void readState(){ //restores saved game
+        try { //tries to open file with game saved
+            FileInputStream fis = openFileInput("misere.txt");
+            Scanner scanner = new Scanner(fis);
+
+            String firstLine = scanner.next();
+            if (firstLine.equals("yes")) {
+                for (int i = 0; i < 3; i++)
+                    for (int j = 0; j < 3; j++) {
+                        String temp = scanner.next();
+                        if (temp.equals("X") || temp.equals("O")) {
+                            board[i][j].setText(temp);
+                            numTurns++;
+                        }
+                    }
+                if (numTurns % 2 == 0)
+                    player1Turn = true;
+                else
+                    player1Turn = false;
+
+            } else
+                scanner.close();
+
+            //open file again to delete contents
+            FileOutputStream fos = openFileOutput("random.txt", Context.MODE_PRIVATE);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+            PrintWriter pw = new PrintWriter(bw);
+            pw.write("no");
+            pw.close();
+
+        } catch (FileNotFoundException e) {
+            // no file to read
+        }
+
+
     }
 
 

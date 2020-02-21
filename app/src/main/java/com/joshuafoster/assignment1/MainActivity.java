@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void restoreMisere(){
         Intent intent = new Intent(getApplicationContext(),
-                random_gameboard.class);
+                MisereGame.class);
         startActivity(intent);
 
     }

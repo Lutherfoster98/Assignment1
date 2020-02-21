@@ -27,9 +27,9 @@
             android:layout_height="100dp"
             android:layout_below="@id/TopTv"
             android:layout_centerHorizontal="true"
+            android:contentDescription="@string/misere"
             android:paddingTop="5dp"
             android:paddingBottom="10dp"
-            android:contentDescription="@string/misere"
             app:srcCompat="@drawable/misere" />
 
         <!-- Score Area -->
